@@ -1,8 +1,8 @@
 const productos = []
 function buscarProducto(){
     debugger
-    let nombre = prompt("ingresa el nombre del producto a buscar");
-    let posicion = productos.indexOf(nombre);
+    let buscar = prompt("ingresa el nombre del producto a buscar");
+    let posicion = productos.indexOf(buscar);
     if (posicion !== -1){
         alert(nombre + " esta en el indice número: " + posicion);
     } else {
