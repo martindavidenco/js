@@ -1,40 +1,42 @@
-
-function calculo(producto1, producto2, producto3) {
-    alert("el total de su compra es de $" + (producto1 + producto2 + producto3))
-}
-let entrada = confirm("DESEA COMPRAR UN PRODUCTO?")
-while (entrada) {
-    let producto = prompt("Escribe el/los numero/s del producto que desea comprar. 1 celular 2 funda 3 cargador (Todo junto. Si desea por ejemplo un celular y cargador escriba 13. Si desea las tres cosas 123.");
-    switch (producto) {
-        case "1":
-            alert("usted eligio un celular")
-            calculo(10000, 0, 0)
-            break;
-        case "12":
-            alert("usted eligio un celular y una funda")
-            calculo(10000, 1000, 0)
-            break;
-        case "123":
-            alert("usted eligio un celular, funda y cargador")
-            calculo(10000, 1000, 1200)
-            break;
-        case "23":
-            alert("usted eligio una funda y un cargador")
-            calculo(0, 1200, 1000)
-            break;
-        case "13":
-            alert("usted eligio un celular y un cargador")
-            calculo(10000, 0, 1200)
-            break;
-        case "2":
-            alert("usted eligio una funda")
-            calculo(0, 1000, 0)
-            break;
-        case "3":
-            alert("usted eligio un cargador")
-            calculo(0, 0, 1200)
-            break;
+const productos = []
+function buscarProducto(){
+    debugger
+    let nombre = prompt("ingresa el nombre del producto a buscar");
+    let posicion = productos.indexOf(nombre);
+    if (posicion !== -1){
+        alert(nombre + " esta en el indice número: " + posicion);
+    } else {
+        alert("El producto no se encuentra en el catálogo");
     }
-    entrada = confirm("Desea seguir con la compra?");
 }
-alert("Gracias por su tiempo")
+const IVA = 1.21
+class Producto {
+    constructor(nombre, importe, talle){
+        this.nombre = nombre
+        this.importe = importe 
+        this.talle = talle
+    }
+    precioFinal(){
+        return parseFloat ((this.importe * IVA).toFixed(2))
+    }
+}
+
+function agregarProducto() {
+    let descripcion = prompt (" ingrese nombre de la prenda de ropa")
+    let importe = parseInt (prompt("Ingresa el importe:"))
+    let talle = prompt ("ingresa el talle")
+    productos.push(new Producto (descripcion, importe, talle))
+    console.table(productos);
+}
+
+function generadorProductos(){
+    productos.push(new Producto("Remera Nike",3500,"XL" ) )
+    productos.push(new Producto( "Zapatillas New Balance",5000 ,"44" ) )
+    productos.push(new Producto("Pantalon deportivo",2000,"XXL" ) )
+    productos.push(new Producto("Gorro" ,2200 ,"L" ) )
+    productos.push(new Producto("Camisa lisa" ,3123 ,"M" ) )
+    productos.push(new Producto("Zapatillas Converse",5600 ,"38" ) )
+    productos.push(new Producto("Campera rompevientos vintage" ,4200 ,"S" ) )
+    productos.push(new Producto( "Buzo adidas",4900 ,"XL" ) )
+    console.table(productos);
+}
