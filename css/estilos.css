@@ -1,0 +1,10 @@
+h2 {
+    color: red;
+}
+h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+    background-color: burlywood;
+}
