@@ -1,4 +1,5 @@
 const productos = []
+const IVA = 1.21
 class Producto {
     constructor(nombre, importe, talle) {
         this.nombre = nombre
@@ -6,7 +7,7 @@ class Producto {
         this.talle = talle
     }
     precioFinal() {
-        return parseFloat((this.importe * IVA).toFixed(2))
+        return "$ " + parseFloat((this.importe * IVA).toFixed(2))
     }
 }
 function buscarProducto() {
@@ -36,8 +37,6 @@ while (entrada) {
     agregarProducto();
     entrada = confirm("desea seguir agregando?")
 }
-const IVA = 1.21
-
 
 function generadorProductos() {
     productos.push(new Producto("Remera Nike", 3500, "XL"))
