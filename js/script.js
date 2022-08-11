@@ -49,3 +49,24 @@ function generadorProductos() {
     productos.push(new Producto("Buzo adidas", 4900, "XL"))
     console.table(productos);
 }
+function filtrarProductosPrecio() {
+    let prod = parseInt(prompt("Ingresa el precio máximo del producto que estes buscando"))
+    const resultado = productos.filter(elemento => elemento.importe < prod)
+    console.table(resultado)
+}
+function ordenarProductosMin() {
+    console.table(productos)
+    let orden = confirm("desea ordenar los productos por precio minimo?")
+    if (orden) {
+        productos.sort((a, b) => {
+            if (a.importe > b.importe) {
+                return 1
+            }
+            if (a.importe < b.importe) {
+                return -1
+            }
+            return 0
+        })
+        console.table(productos)
+    }
+}
