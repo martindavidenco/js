@@ -8,3 +8,8 @@ h3 {
     color: blue;
     background-color: burlywood;
 }
+ul li {
+    margin: 5px;
+    background-color: rgb(197, 71, 71);
+    list-style: none;
+}
