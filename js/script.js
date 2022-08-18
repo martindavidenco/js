@@ -22,10 +22,19 @@ console.table(productos);
 
 function listaHtml() {
     const lista = document.getElementById("lista")
+    lista.innerHTML=""
     productos.forEach(producto => {
-        lista.innerHTML += `<li>Producto: ${producto.nombre}|| Talle: ${producto.talle}|| Importe: $${producto.importe} </li>`
+        lista.innerHTML += `   <div class="card" style="width: 16rem;">
+        <img src="..." class="card-img-top" alt="${producto.nombre} ${producto.talle}">
+        <div class="card-body ">
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">${producto.importe}</p>
+            <a href="producto.html"  class="btn btn-primary">Comprar</a>
+        </div>
+    </div>`
     })
 }
+
 function agregarProducto() {
     let descripcion = prompt(" ingrese nombre de la prenda de ropa")
     let importe = parseInt(prompt("Ingresa el importe:"))
@@ -40,12 +49,11 @@ while (entrada) {
     agregarProducto();
     console.table(productos)
     listaHtml()
-    entrada = confirm("desea seguir agregando?")
+    entrada = confirm("desea agregar otro?")
+}
 }
 
-}
-cargarProducto()
-
+listaHtml()
 function buscarProducto() {
     let buscar = prompt("ingresa el nombre del producto a buscar");
     for (let producto of productos) {
@@ -61,20 +69,27 @@ function buscarProducto() {
     }
 }
 
-/*let entrada = confirm("desea agregar un producto?")
-while (entrada) {
-    agregarProducto();
-    entrada = confirm("desea seguir agregando?")
-}
-*/
 function filtrarProductosPrecio() {
     let prod = parseInt(prompt("Ingresa el precio máximo del producto que estes buscando"))
     const resultado = productos.filter(elemento => elemento.importe < prod)
     console.table(resultado)
+    const lista = document.getElementById("lista")
+    lista.innerHTML=""
+    resultado.forEach(producto => {
+        lista.innerHTML += `   <div class="card" style="width: 16rem;">
+        <img src="..." class="card-img-top" alt="${producto.nombre} ${producto.talle}">
+        <div class="card-body ">
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">${producto.importe}</p>
+            <a href="producto.html"  class="btn btn-primary">Comprar</a>
+        </div>
+    </div>`
+    })
 }
+
 function ordenarProductosMin() {
     console.table(productos)
-    let orden = confirm("desea ordenar los productos por precio minimo?")
+    let orden = true
     if (orden) {
         productos.sort((a, b) => {
             if (a.importe > b.importe) {
@@ -89,3 +104,10 @@ function ordenarProductosMin() {
     }
     listaHtml()
 }
+
+const boton = document.querySelector("#btn")
+boton.addEventListener ("click", cargarProducto)
+const precio_menor = document.querySelector("#menorPrecio")
+precio_menor.addEventListener ("click",ordenarProductosMin)
+const precio_mayor = document.querySelector("#mayorPrecio")
+precio_mayor.addEventListener ("click",filtrarProductosPrecio)

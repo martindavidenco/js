@@ -1,21 +1,93 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
+    <link rel="shortcut icon" href="../assets/favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="FlameDavidenco/assets/favicon-16x16.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./FlameDavidenco/css/estilos.css">
+    <title>FLAME | Explorar</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="keywords" content="Mercado de ropa, ropa, local, marca, marca, venta ropa usada, feria ">
+    <meta name="description"
+        content="FLAME es el sitio web diseñado para la compra y venta de ropa, ya no necesitaras salir a la calle a buscar tus prendas favoritas ni tampoco tener un local de ropa para venderla. Todo esto y mucho mas en FLAME">
     <script defer src="js/script.js"></script>
-    <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
-    <h1>Tienda de ropa online</h1>
-    <h2>Abre la consola para visualizar el catálogo y poder agregar productos</h2>
-    <h2>Escribe en la consola: </h2>
-    <h3>buscarProducto() para buscar un articulo del catalogo</h3>
-    <h3> productos[numero del indice del producto].precioFinal para sumar iva</h3>
-    <h3> cargarProducto() para agregar mas articulos!</h3>   
-    <h3> filtrarProductosPrecio() para filtrar los productos por precio máximo  </h3> 
-    <h3> ordenarProductosMin() para ordenar los productos por precio minimo <h3> 
-        <ul id="lista"></ul>
+    <div class="gridContainer">
+        <header class="header">
+            <div>
+                <img src="/assets/free-logo.png" alt="Logo">
+                <div>
+                    <h1>FLAME</h1>
+                    <p id="subtitulo">Mercado de ropa</p>
+                </div>
+            </div>
+
+            <div class="registrar">
+                <div id="btn">
+                    <h2>Agrega productos!</h2><img src="/assets/agregar.png" alt="Publica">
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="mainExplorar">
+                <nav class="navbar navbar-expand navbar-dark bg-dark navexplorar" aria-label="Second navbar example">
+                    <div class="container-fluid navflex">
+
+                        <div class="collapse navbar-collapse" id="navbarsExample02">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item" >
+                                    <a class="nav-item">Menor precio</a>
+                                    <div class="form-check form-switch">
+                                        <input id="menorPrecio" class="form-check-input botonsitoo" type="checkbox" role="switch"
+                                            id="flexSwitchCheckChecked" checked>
+                                    </div>
+                                </li>
+                                <li class="nav-item form-check form-switch" >
+                                    <a class="nav-link">Filtro de precios!</a>
+                                    <div class="form-check form-switch">
+                                        <input id="mayorPrecio" class="form-check-input botonsitoo" type="checkbox" role="switch"
+                                            id="flexSwitchCheckChecked" checked>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="explorar.html">Favoritas</a>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input botonsitoo" type="checkbox" role="switch"
+                                            id="flexSwitchCheckChecked" checked>
+                                    </div>
+                                </li>
+                            </ul>
+                            <form role="search buscador">
+                                <input class="form-control" type="search" placeholder="Ej: Pantalon"
+                                    aria-label="Search">
+                            </form>
+                        </div>
+                </nav>
+                <section class="productos" id="lista">
+                </section>
+            </div>
+        </main>
+        <footer class="footer">
+            <a href="index.html"><img src="/assets/free-logo.png" alt="logo"> </a>
+            <div>
+                <p>&copy2022 Desarrollado por Martin Davidenco</p>
+            </div>
+            <div><a href="../assets/facebook.png" title="facebook"><img src="/assets/facebook.png"
+                        alt="facebook"></a>
+                <a href="https://www.twitter.com/leomessi"><img src="/assets/twitter.png"
+                        alt="twitter"></a>
+                <a href="https://www.instagram.com/leomessi"><img src="/assets/instagram.png"
+                        alt="instagram"></a>
+            </div>
+        </footer>
+    </div>
+    <script src="/js/bootstrap.js"></script>
 </body>
+
 </html>
