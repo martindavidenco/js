@@ -62,29 +62,27 @@
     flex-direction: column;
     padding: 10px 0 0 0;
 }
-
-.header nav ul {
+.carrito {
+background-color: rgba(175, 155, 42, 0.897);
+    width: 40%;
+    color: black;
+    border-radius: 10px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.carrito ul {
+    display:flex;
     list-style: none;
-}
 
-.header nav ul li {
-    margin: 5px;
-    font-weight: 800;
-    text-transform: uppercase;
 }
-
-.header nav ul li a {
-    color: #c9400a;
-    text-decoration: none;
-    text-shadow: 2px 2px 2px red;
+.carrito ul li {
+    margin:20px;
 }
-
-.header nav ul li:hover {
-    color: red;
-    transform: scale(1.1);
+.itemCarro {
+    display:flex;
 }
-
 .registrar {
     display: flex;
     justify-content: flex-end;
