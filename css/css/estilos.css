@@ -99,6 +99,10 @@ background-color: rgba(175, 155, 42, 0.897);
 .itemCarro {
     display:flex;
 }
+#total {
+    color:#c9400a;
+}
+
 .alert-agregado {
     background-color: rgb(60, 184, 60);
 }

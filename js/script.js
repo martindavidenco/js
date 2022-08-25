@@ -2,6 +2,11 @@
 const productos = []
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
 const IVA = 1.21
+const cartelTotal = document.querySelector("#total");
+//  cartelTotal.innerText `${precioTotal}` 
+// // for(let i = 0;i < carrito.lenght;i++){
+// //    let  precioTotal = carrito[i].importe + precioTotal
+// // }
 //Nodos
 const carritoDiv = document.querySelector("#container")
 const boton = document.querySelector("#botn")
@@ -81,6 +86,7 @@ function visualizarCarrito() {
     })
     localStorage.setItem("carrito",JSON.stringify(carrito))
     borrarCarrito()
+    totalCarrito()
 }
 
 function borrarCarrito() {
@@ -91,6 +97,9 @@ function borrarCarrito() {
             mostrarMensaje("Producto eliminado", "eliminado")
         })
     })
+}
+function totalCarrito() {
+    cartelTotal.innerText = carrito.reduce((acc,el)=> acc + (el.importe), 0)
 }
 function mostrarMensaje(mensaje, cssClass) {
     const div = document.createElement(`div`);
