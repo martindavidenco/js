@@ -99,6 +99,12 @@ background-color: rgba(175, 155, 42, 0.897);
 .itemCarro {
     display:flex;
 }
+.alert-agregado {
+    background-color: rgb(60, 184, 60);
+}
+.alert-eliminado {
+    background-color: #c9400a;
+}
 .registrar {
     display: flex;
     justify-content: flex-end;

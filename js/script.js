@@ -65,6 +65,7 @@ function agregarCarrito(producto) {
     }
     console.table(carrito)
     visualizarCarrito()
+    mostrarMensaje("Producto agregado satisfactoriamente", "agregado")
 }
 function visualizarCarrito() {
     carritoDiv.innerHTML = "";
@@ -87,8 +88,21 @@ function borrarCarrito() {
         document.querySelector(`#btn-eliminar${producto.id}`).addEventListener("click", () => {
             carrito = carrito.filter((productoFilter)=>productoFilter.id !== producto.id )
             visualizarCarrito()
+            mostrarMensaje("Producto eliminado", "eliminado")
         })
     })
+}
+function mostrarMensaje(mensaje, cssClass) {
+    const div = document.createElement(`div`);
+    div.className = `alert alert-${cssClass}`;
+    div.appendChild(document.createTextNode(mensaje));
+    // mostrando en dom
+    const container = document.querySelector(`.mainExplorar`);
+    const app = document.querySelector(`.navbar`);
+    container.insertBefore(div, app);
+    setTimeout(function(){
+        document.querySelector(`.alert`).remove();
+    }, 2500)
 }
 
 function agregarProducto() {
