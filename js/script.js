@@ -22,15 +22,9 @@ function listaHtml() {
     });
     funcionCarrito();
 }
-function funcionCarrito() {
-    productos.forEach((producto) => {
-        document.querySelector(`#btn-agregar${producto.id}`).addEventListener("click", () => {
-            agregarCarrito(producto)
-        })
-    })
-}
+productos
 function carritoCantidad() {
-    return carritoLenght.innerHTML = carrito.reduce((acc,el)=> acc + el.cantidad,0)
+    return carritoLenght.innerHTML = carrito.reduce((acc, el) => acc + el.cantidad, 0)
 }
 function visualizarCarrito() {
     carritoDiv.innerHTML = "";
@@ -50,9 +44,18 @@ function visualizarCarrito() {
     totalCarrito()
 }
 
+function funcionCarrito() {
+    productos.forEach((producto) => {
+        document.querySelector(`#btn-agregar${producto.id}`).addEventListener("click", () => {
+            agregarCarrito(producto)
+        })
+    })
+
+}
+
 function agregarCarrito(producto) {
     let cantidad = carrito.some(prod => prod.id === producto.id);
-    
+
     if (cantidad === false) {
         producto.cantidad = 1
         carrito.push(producto)
@@ -70,12 +73,21 @@ function borrarCarrito() {
     
     carrito.forEach((producto) => {
         document.querySelector(`#btn-eliminar${producto.id}`).addEventListener("click", () => {
-            carrito = carrito.filter((productoFilter) => productoFilter.id !== producto.id)
-            visualizarCarrito()
-            mostrarMensaje("Producto eliminado", "eliminado")
-            carritoCantidad()
+            borrarProducto(producto)
         })
-    })}
+    })
+}
+function borrarProducto(producto) {
+    let cantidad = carrito.some(prod => prod.id === producto.id);
+    if (cantidad = 1) {
+        carrito = carrito.filter((productoFilter) => productoFilter.id !== producto.id)
+    } else {
+        producto[`${producto.id}}`].cantidad--
+    }
+    visualizarCarrito()
+    mostrarMensaje("Producto eliminado", "eliminado")
+    carritoCantidad()
+}
 
 function totalCarrito() {
     cartelTotal.innerText = carrito.reduce((acc, el) => acc + (el.importe), 0)
