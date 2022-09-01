@@ -23,6 +23,7 @@
 
 .main {
     grid-area: main;
+    background-color: rgba(41, 41, 41, 0.897);
 }
 
 .footer {
@@ -62,47 +63,53 @@
     flex-direction: column;
     padding: 10px 0 0 0;
 }
-.carrito {
-background-color: rgba(175, 155, 42, 0.897);
-    width: 40%;
-    color: black;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 10px;
-    border-color: aquamarine;
-}
-#container {
-    display: flex;
-    flex-direction: column;
-}
-.carrito div {
-    color: black;
-
-}
-.carrito ul {
-    display:flex;
-    list-style: none;
-    background-color: #c9400a;
-    width: 100%;
-    flex-wrap: wrap;
-}
-.carrito ul li {
-    margin:10px;
-    display: flex;
-}
-.carrito ul li img{
-    margin-left: 20px;
-}
+.btn-primary {
+    --bs-btn-color:rgba(175, 155, 42, 0.897);
+    --bs-btn-bg: #c9400a;
+    --bs-btn-border-color: #c9400a;
+    --bs-btn-hover-color: rgba(175, 155, 42, 0.897);
+    --bs-btn-hover-bg: #c9400a;
+    --bs-btn-hover-border-color: #c9400a;
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color:rgba(175, 155, 42, 0.897);
+    --bs-btn-active-bg: #c9400a;
+    --bs-btn-active-border-color: #c9400a;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color:rgba(175, 155, 42, 0.897);
+    --bs-btn-disabled-bg: #c9400a;
+    --bs-btn-disabled-border-color: #c9400a;
+  }
 .itemCarro {
     display:flex;
 }
 #total {
     color:#c9400a;
 }
-
+.modal-content{
+    background-color:rgba(175, 155, 42, 0.897);
+}
+.imgCarro {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+.card-img-top {
+    width: 100px;
+    height: 100px;
+  
+}
+.infoModal{
+    margin: 15px;
+    background-color: #c9400a;
+    border-radius: 13px;
+}
+.infoModal li {
+    
+}
+.ul-modal {
+    list-style: none;
+    display:flex
+}
 .alert-agregado {
     background-color: rgb(60, 184, 60);
 }
@@ -196,6 +203,18 @@ footer div a img {
     animation-name: cards;
     animation-duration: 2s;
     animation-iteration-count: 1;
+}
+.btn{
+    color: #c9400a;
+    background-color: rgba(175, 155, 42, 0.897);
+    border-color: orangered;
+    display: flex;
+    align-self: center;
+}
+.btn:hover{
+    color: rgba(175, 155, 42, 0.897);
+    background-color: #c9400a;
+    border-color: #c9400a;
 }
 
 .card {
