@@ -2,6 +2,7 @@
 boton.addEventListener("click", cargarProducto)
 precio_menor.addEventListener("click", ordenarProductosMin)
 precio_mayor.addEventListener("click", filtrarProductosPrecio)
+comprar.addEventListener("click",btnComprar)
 
 // DECLARACION FUNCIONES
 function listaHtml() {
@@ -78,14 +79,22 @@ function borrarCarrito() {
     })
 }
 function borrarProducto(producto) {
-    let cantidad = carrito.some(prod => prod.id === producto.id);
-    if (cantidad = 1) {
+    let produc = carrito.find(prod => prod.id === producto.id);
+    if (produc.cantidad == 1) {
         carrito = carrito.filter((productoFilter) => productoFilter.id !== producto.id)
+        Swal.fire({
+            icon: 'error',
+            //title: 'Oops...',
+            text: 'Producto eliminado del carro',
+            //footer: '<a href="">Why do I have this issue?</a>'
+            background: "orange",
+            confirmButtonColor: "red",
+          })
     } else {
-        producto[`${producto.id}}`].cantidad--
+        produc.cantidad--
     }
     visualizarCarrito()
-    mostrarMensaje("Producto eliminado", "eliminado")
+   
     carritoCantidad()
 }
 
@@ -170,7 +179,17 @@ function ordenarProductosMin() {
     }
     listaHtml()
 }
+function btnComprar() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Estamos trabajando en la seccion de compras',
+        footer: 'Disculpen las molestias',
+        background: "orange"
+      })
+}
 //LLamado funciones
+
 visualizarCarrito()
 listaHtml()
 carritoCantidad()
