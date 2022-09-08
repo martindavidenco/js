@@ -5,13 +5,15 @@ precio_mayor.addEventListener("click", filtrarProductosPrecio)
 comprar.addEventListener("click", btnComprar)
 
 // DECLARACION FUNCIONES
+let productos = [];
 function listaHtml() {
     const lista = document.getElementById("lista")
     lista.innerHTML = ""
     fetch(URL)
         .then(ress => ress.json())
-        .then(productos => {
-            productos.forEach(producto => {
+        .then(data => {
+            productos = [...data]
+            data.forEach(producto => {
                 lista.innerHTML += `  
                                 <div class="card" style="width: 16rem;">
                                     <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
@@ -22,21 +24,21 @@ function listaHtml() {
                                      </div>
                                 </div> `
             })
+            funcionCarrito();
         })
-    // productos.forEach(producto => {
-    //     lista.innerHTML += `  
-    //     <div class="card" style="width: 16rem;">
-    //     <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
-    //     <div class="card-body ">
-    //         <h5 class="card-title">${producto.nombre}</h5>
-    //         <p class="card-text">$ ${producto.importe}</p>
-    //         <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
-    //     </div>
-    //     </div> `
-    // });
-    funcionCarrito();
-}
 
+}
+// productos.forEach(producto => {
+//     lista.innerHTML += `  
+//     <div class="card" style="width: 16rem;">
+//     <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
+//     <div class="card-body ">
+//         <h5 class="card-title">${producto.nombre}</h5>
+//         <p class="card-text">$ ${producto.importe}</p>
+//         <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
+//     </div>
+//     </div> `
+// });
 function carritoCantidad() {
     return carritoLenght.innerHTML = carrito.reduce((acc, el) => acc + el.cantidad, 0)
 }

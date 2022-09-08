@@ -1,5 +1,5 @@
 // // ARRAY DE OBJETOS
-const productos = [] ; 
+ 
 // class Producto {
 //     constructor(nombre, importe, talle, id) {
 //         this.nombre = nombre
