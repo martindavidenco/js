@@ -2,28 +2,41 @@
 boton.addEventListener("click", cargarProducto)
 precio_menor.addEventListener("click", ordenarProductosMin)
 precio_mayor.addEventListener("click", filtrarProductosPrecio)
-comprar.addEventListener("click",btnComprar)
+comprar.addEventListener("click", btnComprar)
 
 // DECLARACION FUNCIONES
 function listaHtml() {
     const lista = document.getElementById("lista")
     lista.innerHTML = ""
-    productos.forEach(producto => {
-        lista.innerHTML += `  
-        <div class="card" style="width: 16rem;">
-        <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
-        <div class="card-body ">
-            <h5 class="card-title">${producto.nombre}</h5>
-            <p class="card-text">$ ${producto.importe}</p>
-            <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
-        </div>
-    </div>
-   
-    `
-    });
+    fetch(URL)
+        .then(ress => ress.json())
+        .then(productos => {
+            productos.forEach(producto => {
+                lista.innerHTML += `  
+                                <div class="card" style="width: 16rem;">
+                                    <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
+                                    <div class="card-body ">
+                                     <h5 class="card-title">${producto.nombre}</h5>
+                                     <p class="card-text">$ ${producto.importe}</p>
+                                     <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
+                                     </div>
+                                </div> `
+            })
+        })
+    // productos.forEach(producto => {
+    //     lista.innerHTML += `  
+    //     <div class="card" style="width: 16rem;">
+    //     <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
+    //     <div class="card-body ">
+    //         <h5 class="card-title">${producto.nombre}</h5>
+    //         <p class="card-text">$ ${producto.importe}</p>
+    //         <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
+    //     </div>
+    //     </div> `
+    // });
     funcionCarrito();
 }
-productos
+
 function carritoCantidad() {
     return carritoLenght.innerHTML = carrito.reduce((acc, el) => acc + el.cantidad, 0)
 }
@@ -66,12 +79,12 @@ function agregarCarrito(producto) {
     }
     console.table(carrito)
     visualizarCarrito()
-    mostrarMensaje("Producto agregado satisfactoriamente", "agregado")
+    mostrarMensaje(`${producto.nombre} agregado satisfactoriamente`, "agregado")
     carritoCantidad()
 }
 
 function borrarCarrito() {
-    
+
     carrito.forEach((producto) => {
         document.querySelector(`#btn-eliminar${producto.id}`).addEventListener("click", () => {
             borrarProducto(producto)
@@ -85,16 +98,16 @@ function borrarProducto(producto) {
         Swal.fire({
             icon: 'error',
             //title: 'Oops...',
-            text: 'Producto eliminado del carro',
+            text: `${producto.nombre} eliminado del carro`,
             //footer: '<a href="">Why do I have this issue?</a>'
             background: "orange",
             confirmButtonColor: "red",
-          })
+        })
     } else {
         produc.cantidad--
     }
     visualizarCarrito()
-   
+
     carritoCantidad()
 }
 
@@ -186,7 +199,7 @@ function btnComprar() {
         text: 'Estamos trabajando en la seccion de compras',
         footer: 'Disculpen las molestias',
         background: "orange"
-      })
+    })
 }
 //LLamado funciones
 

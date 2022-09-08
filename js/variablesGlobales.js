@@ -3,6 +3,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || []
 const IVA = 1.21
 const cartelTotal = document.querySelector("#total"); 
 let carritoLenght = document.querySelector(".carritoLenght")
+const URL = "js/array.json"
 //Nodos
 const carritoDiv = document.querySelector("#container")
 const boton = document.querySelector("#botn")

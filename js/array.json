@@ -1,0 +1,50 @@
+[
+    {
+        "nombre": "Buzo Trasher",
+        "importe": 4800,
+        "talle": "XL",
+        "id": 0
+    },
+    {
+        "nombre": "Pantalon de jean clasico",
+        "importe": 5000,
+        "talle": "XXl",
+        "id": "1"
+    },
+    {
+        "nombre": "Zapatilla Negra New Air 3.0",
+        "importe": 15800,
+        "talle": "43",
+        "id": 2
+    },
+    {
+        "nombre": "Remera Mc Lovin",
+        "importe": 2700,
+        "talle": "L",
+        "id": 3
+    },
+    {
+        "nombre": "Camiseta deportiva negra",
+        "importe": 3123,
+        "talle": "M",
+        "id": 4
+    },
+    {
+        "nombre": "Gorro Nike",
+        "importe":5600 ,
+        "talle": "38",
+        "id": 5
+    },
+    {
+        "nombre": "Medias fogosas",
+        "importe": 2300,
+        "talle": "40",
+        "id": 6
+    },
+    {
+        "nombre": "Pantalon Nike Babucha",
+        "importe":4900 ,
+        "talle": "XL",
+        "id": 7
+    }
+]
