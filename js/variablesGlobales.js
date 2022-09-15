@@ -10,3 +10,6 @@ const boton = document.querySelector("#botn")
 const precio_menor = document.querySelector("#menorPrecio")
 const precio_mayor = document.querySelector("#mayorPrecio")
 const comprar = document.querySelector(".botonComprar")
+
+let pMax = document.getElementById("outvol")
+console.log(pMax.innerText)

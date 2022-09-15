@@ -65,10 +65,13 @@
                                     </div>
                                 </li>
                                 <li class="nav-item form-check form-switch">
+                                    <!-- Button trigger modal -->
+
                                     <a class="nav-link">Filtro de precios!</a>
                                     <div class="form-check form-switch">
-                                        <input id="mayorPrecio" class="form-check-input botonsitoo" type="checkbox"
-                                            role="switch" id="flexSwitchCheckChecked" checked>
+                                        <input class="form-check-input botonsitoo" type="checkbox" role="switch"
+                                            id="flexSwitchCheckChecked" checked class="btn btn-primary"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                     </div>
                                 </li>
                                 <li class="nav-item">
@@ -109,6 +112,31 @@
             </div>
         </div>
         <!-- fin modal -->
+        <!-- modal2 -->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Filtro de precios</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="customRange2" class="form-label">Rango de precio máximo en el que desea buscar
+                            productos!</label>
+                        <input onchange="document.getElementById(`outvol`).value=value" step="0.5" type="range"
+                            class="form-range" min="0" name="vol" max="25000" id="customRange2 vol"></input>
+                        <div class="pMax">
+                            <p>Precio máximo: </p><output id="outvol" name="outvol" for="vol"> $</output>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="mayorPrecio">Aplicar filtro</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fin modal2 -->
         <footer class="footer">
             <a href="index.html"><img src="/assets/free-logo.png" alt="logo"> </a>
             <div>

@@ -18,10 +18,10 @@ function listaHtml() {
                                 <div class="card" style="width: 16rem;">
                                     <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
                                     <div class="card-body ">
-                                     <h5 class="card-title">${producto.nombre}</h5>
-                                     <p class="card-text">$ ${producto.importe}</p>
-                                     <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
-                                     </div>
+                                    <h5 class="card-title">${producto.nombre}</h5>
+                                    <p class="card-text">$ ${producto.importe}</p>
+                                    <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
+                                </div>
                                 </div> `
             })
             funcionCarrito();
@@ -161,7 +161,7 @@ function buscarProducto() {
 }
 
 function filtrarProductosPrecio() {
-    let prod = parseInt(prompt("Ingresa el precio máximo del producto que estes buscando"))
+    let prod = parseInt(pMax.innerText)
     const resultado = productos.filter(elemento => elemento.importe < prod)
     console.table(resultado)
     const lista = document.getElementById("lista")
@@ -177,8 +177,9 @@ function filtrarProductosPrecio() {
         </div>`
     })
 }
+
 function ordenarProductosMin() {
-    console.table(productos)
+
     let orden = true
     if (orden) {
         productos.sort((a, b) => {
@@ -190,10 +191,11 @@ function ordenarProductosMin() {
             }
             return 0
         })
-        console.table(productos)
+
+        listaHtml()
     }
-    listaHtml()
 }
+
 function btnComprar() {
     Swal.fire({
         icon: 'error',
