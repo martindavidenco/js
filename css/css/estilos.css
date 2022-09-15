@@ -139,7 +139,16 @@
     height: 30px;
 }
 .pMax{
-    display.flex
+    display:flex;
+    color: red
+}
+.rango {
+    color: #c9400a
+}
+.modd {
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 /*----MAIN----*/
 

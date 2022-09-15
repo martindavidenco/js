@@ -7,13 +7,13 @@
     },
     {
         "nombre": "Pantalon de jean clasico",
-        "importe": 5000,
+        "importe": 9000,
         "talle": "XXl",
         "id": "1"
     },
     {
         "nombre": "Zapatilla Negra New Air 3.0",
-        "importe": 15800,
+        "importe": 19800,
         "talle": "43",
         "id": 2
     },
@@ -31,7 +31,7 @@
     },
     {
         "nombre": "Gorro Nike",
-        "importe":5600 ,
+        "importe":10600 ,
         "talle": "38",
         "id": 5
     },

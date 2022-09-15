@@ -117,16 +117,16 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Filtro de precios</h5>
+                        <h5 class="modal-title modd" id="exampleModalLabel">Filtro de precios</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <label for="customRange2" class="form-label">Rango de precio máximo en el que desea buscar
                             productos!</label>
                         <input onchange="document.getElementById(`outvol`).value=value" step="0.5" type="range"
-                            class="form-range" min="0" name="vol" max="25000" id="customRange2 vol"></input>
+                            class="form-range rango" min="0" name="vol" max="25000" id="customRange2 vol"></input>
                         <div class="pMax">
-                            <p>Precio máximo: </p><output id="outvol" name="outvol" for="vol"> $</output>
+                            <p>Precio máximo: $  </p><output id="outvol" name="outvol" for="vol"> 15500</output>
                         </div>
                     </div>
                     <div class="modal-footer">
