@@ -123,10 +123,17 @@
                     <div class="modal-body">
                         <label for="customRange2" class="form-label">Rango de precio máximo en el que desea buscar
                             productos!</label>
+                            <!-- precio minimo -->
+                            <input onchange="document.getElementById(`outvol1`).value=value" step="0.5" type="range"
+                            class="form-range rango" min="0" name="vol1" max="25000" id="customRange2 vol"></input>
+                        <div class="pMax">
+                            <p>Precio mínimo: $  </p><output id="outvol1" name="outvol1" for="vol1"> ...</output>
+                        </div>
+                        <!-- precio maximo -->
                         <input onchange="document.getElementById(`outvol`).value=value" step="0.5" type="range"
                             class="form-range rango" min="0" name="vol" max="25000" id="customRange2 vol"></input>
                         <div class="pMax">
-                            <p>Precio máximo: $  </p><output id="outvol" name="outvol" for="vol"> 15500</output>
+                            <p>Precio máximo: $  </p><output id="outvol" name="outvol" for="vol"> ...</output>
                         </div>
                     </div>
                     <div class="modal-footer">

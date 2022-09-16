@@ -1,5 +1,6 @@
 //VARIABLES Y CONSTANTES
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
+let favoritos = []
 const IVA = 1.21
 const cartelTotal = document.querySelector("#total"); 
 let carritoLenght = document.querySelector(".carritoLenght")
@@ -12,4 +13,4 @@ const precio_mayor = document.querySelector("#mayorPrecio")
 const comprar = document.querySelector(".botonComprar")
 
 let pMax = document.getElementById("outvol")
-console.log(pMax.innerText)
+let pMin =  document.getElementById("outvol1")

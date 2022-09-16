@@ -6,6 +6,23 @@ comprar.addEventListener("click", btnComprar)
 
 // DECLARACION FUNCIONES
 let productos = [];
+// fetch(URL)
+// .then(ress => ress.json())
+// .then(data => {
+//     productos = [...data]})
+const cargarContenido = async ()=>{
+    let jsonProductos 
+    await fetch(URL)
+        .then((response)=>response.json())
+        .then((data) => {
+            jsonProductos = data
+            jsonProductos.forEach(jsonProd => {
+                productos.push(jsonProd)
+            })
+        })
+        
+}
+cargarContenido()
 function listaHtml() {
     const lista = document.getElementById("lista")
     lista.innerHTML = ""
@@ -20,25 +37,14 @@ function listaHtml() {
                                     <div class="card-body ">
                                     <h5 class="card-title">${producto.nombre}</h5>
                                     <p class="card-text">$ ${producto.importe}</p>
-                                    <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
-                                </div>
+                                    <div>    <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
+                                </div></div>
                                 </div> `
             })
-            funcionCarrito();
+            funcionCarrito(productos);
         })
-
 }
-// productos.forEach(producto => {
-//     lista.innerHTML += `  
-//     <div class="card" style="width: 16rem;">
-//     <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
-//     <div class="card-body ">
-//         <h5 class="card-title">${producto.nombre}</h5>
-//         <p class="card-text">$ ${producto.importe}</p>
-//         <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
-//     </div>
-//     </div> `
-// });
+
 function carritoCantidad() {
     return carritoLenght.innerHTML = carrito.reduce((acc, el) => acc + el.cantidad, 0)
 }
@@ -60,8 +66,8 @@ function visualizarCarrito() {
     totalCarrito()
 }
 
-function funcionCarrito() {
-    productos.forEach((producto) => {
+function funcionCarrito(array) {
+    array.forEach((producto) => {
         document.querySelector(`#btn-agregar${producto.id}`).addEventListener("click", () => {
             agregarCarrito(producto)
         })
@@ -161,12 +167,15 @@ function buscarProducto() {
 }
 
 function filtrarProductosPrecio() {
+
     let prod = parseInt(pMax.innerText)
-    const resultado = productos.filter(elemento => elemento.importe < prod)
-    console.table(resultado)
+    let pro1 = parseInt(pMin.innerText)
+    let resultado = productos.filter(elemento =>elemento.importe < prod)
+    let resultado2 = resultado.filter(elemento =>elemento.importe > pro1)
+    console.table(resultado2)
     const lista = document.getElementById("lista")
     lista.innerHTML = ""
-    resultado.forEach(producto => {
+    resultado2.forEach(producto => {
         lista.innerHTML += `   <div class="card" style="width: 16rem;">
         <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
         <div class="card-body ">
@@ -176,10 +185,10 @@ function filtrarProductosPrecio() {
         </div>
         </div>`
     })
+    funcionCarrito(resultado2);
 }
 
 function ordenarProductosMin() {
-
     let orden = true
     if (orden) {
         productos.sort((a, b) => {
@@ -207,6 +216,7 @@ function btnComprar() {
 }
 //LLamado funciones
 
+cargarContenido()
 visualizarCarrito()
 listaHtml()
 carritoCantidad()

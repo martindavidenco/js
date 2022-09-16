@@ -1,7 +1,7 @@
 [
     {
         "nombre": "Buzo Trasher",
-        "importe": 4800,
+        "importe": 11800,
         "talle": "XL",
         "id": 0
     },
@@ -25,7 +25,7 @@
     },
     {
         "nombre": "Camiseta deportiva negra",
-        "importe": 3123,
+        "importe": 5123,
         "talle": "M",
         "id": 4
     },
@@ -43,7 +43,7 @@
     },
     {
         "nombre": "Pantalon Nike Babucha",
-        "importe":4900 ,
+        "importe":7900 ,
         "talle": "XL",
         "id": 7
     }
