@@ -1,27 +1,23 @@
 //EVENTOS
-
 precio_menor.addEventListener("click", ordenarProductosMin)
 precio_mayor.addEventListener("click", filtrarProductosPrecio)
 comprar.addEventListener("click", realizarCompra)
 subir.addEventListener("click", mostrarProductosCargados)
 
 // DECLARACION FUNCIONES
-
-
-const cargarContenido = async ()=>{
-    let jsonProductos 
+const cargarContenido = async () => {
+    let jsonProductos
     await fetch(URL)
-        .then((response)=>response.json())
+        .then((response) => response.json())
         .then((data) => {
             jsonProductos = data
             jsonProductos.forEach(jsonProd => {
                 productos.push(jsonProd)
             })
         })
-        
 }
 function listaHtml() {
-    
+
     lista.innerHTML = ""
     fetch(URL)
         .then(ress => ress.json())
@@ -69,7 +65,6 @@ function funcionCarrito(array) {
             agregarCarrito(producto)
         })
     })
-
 }
 
 function agregarCarrito(producto) {
@@ -112,7 +107,6 @@ function borrarProducto(producto) {
         produc.cantidad--
     }
     visualizarCarrito()
-
     carritoCantidad()
 }
 
@@ -138,7 +132,7 @@ function agregarProducto() {
     let talle = talleProd.value
     productosNuevos.push(new Producto(descripcion, importe, talle,))
 }
-function mostrarProductosCargados(){
+function mostrarProductosCargados() {
     agregarProducto()
     productosNuevos.forEach(producto => {
         lista.innerHTML += `   <div class="card" style="width: 16rem;">
@@ -156,8 +150,8 @@ function filtrarProductosPrecio() {
 
     let prod = parseInt(pMax.innerText)
     let pro1 = parseInt(pMin.innerText)
-    let resultado = productos.filter(elemento =>elemento.importe < prod)
-    let resultado2 = resultado.filter(elemento =>elemento.importe > pro1)
+    let resultado = productos.filter(elemento => elemento.importe < prod)
+    let resultado2 = resultado.filter(elemento => elemento.importe > pro1)
     console.table(resultado2)
     const lista = document.getElementById("lista")
     lista.innerHTML = ""
@@ -173,23 +167,26 @@ function filtrarProductosPrecio() {
     })
     funcionCarrito(resultado2);
 }
+function comparacion(a, b) {
+    return a.importe - b.importe
+}
 function ordenarProductosMin() {
     productos.sort(comparacion)
     lista.innerHTML = ""
     productos.forEach(producto => {
         lista.innerHTML += `  
-                        <div class="card" style="width: 16rem;">
-                            <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
-                            <div class="card-body ">
-                            <h5 class="card-title">${producto.nombre}</h5>
-                            <p class="card-text">$ ${producto.importe}</p>
-                            <div>    <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
-                        </div></div>
-                        </div> `
+        <div class="card" style="width: 16rem;">
+        <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
+        <div class="card-body ">
+        <h5 class="card-title">${producto.nombre}</h5>
+        <p class="card-text">$ ${producto.importe}</p>
+        <div>    <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
+        </div></div>
+        </div> `
     })
     funcionCarrito(productos);
 }
-function realizarCompra(){
+function realizarCompra() {
     localStorage.removeItem("carrito")
     carritoDiv.innerHTML = "";
     cartelTotal.innerText = "";
@@ -200,20 +197,13 @@ function realizarCompra(){
 function btnComprar() {
     Swal.fire({
         icon: 'success',
-        title: 'Listo. ID de compra: #'+ Math.floor((Math.random() * 100000)),
+        title: 'Listo. ID de compra: #' + Math.floor((Math.random() * 100000)),
         text: 'Su compra fue realizada exitosamente.',
         footer: 'Gracias por confiar en FLAME',
         background: "orange"
     })
 }
 //LLamado funciones
-
-// productos.sort((a,b)=>{if(a.importe>b.importe){return 1}
-// if (a.importe<b.importe){return -1}return 0})
-function comparacion(a,b){
-    return a.importe - b.importe
-}
-
 cargarContenido()
 visualizarCarrito()
 listaHtml()
