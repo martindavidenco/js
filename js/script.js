@@ -1,15 +1,13 @@
 //EVENTOS
-boton.addEventListener("click", cargarProducto)
+
 precio_menor.addEventListener("click", ordenarProductosMin)
 precio_mayor.addEventListener("click", filtrarProductosPrecio)
-comprar.addEventListener("click", btnComprar)
+comprar.addEventListener("click", realizarCompra)
+subir.addEventListener("click", mostrarProductosCargados)
 
 // DECLARACION FUNCIONES
-let productos = [];
-// fetch(URL)
-// .then(ress => ress.json())
-// .then(data => {
-//     productos = [...data]})
+
+
 const cargarContenido = async ()=>{
     let jsonProductos 
     await fetch(URL)
@@ -22,9 +20,8 @@ const cargarContenido = async ()=>{
         })
         
 }
-cargarContenido()
 function listaHtml() {
-    const lista = document.getElementById("lista")
+    
     lista.innerHTML = ""
     fetch(URL)
         .then(ress => ress.json())
@@ -136,34 +133,23 @@ function mostrarMensaje(mensaje, cssClass) {
 }
 
 function agregarProducto() {
-    let descripcion = prompt(" ingrese nombre de la prenda de ropa")
-    let importe = parseInt(prompt("Ingresa el importe:"))
-    let talle = prompt("ingresa el talle")
-    productos.push(new Producto(descripcion, importe, talle))
+    let descripcion = nombreProd.value
+    let importe = parseInt(precioProd.value)
+    let talle = talleProd.value
+    productosNuevos.push(new Producto(descripcion, importe, talle,))
 }
-function cargarProducto() {
-    let entrada = confirm("desea cargar un producto?")
-    while (entrada) {
-        agregarProducto();
-        console.table(productos)
-        listaHtml()
-        entrada = confirm("desea agregar otro?")
-    }
-}
-
-function buscarProducto() {
-    let buscar = prompt("ingresa el nombre del producto a buscar");
-    for (let producto of productos) {
-        if (producto.nombre == buscar) {
-            let posicion = productos.indexOf(producto);
-            console.log(posicion);
-            if (posicion !== -1) {
-                alert(producto.nombre + " esta en el indice número: " + posicion);
-            } else {
-                alert("El producto no se encuentra en el catálogo");
-            }
-        }
-    }
+function mostrarProductosCargados(){
+    agregarProducto()
+    productosNuevos.forEach(producto => {
+        lista.innerHTML += `   <div class="card" style="width: 16rem;">
+        <img src="/assets/revision-min.png" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
+        <div class="card-body ">
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">$ ${producto.importe}</p>
+            <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
+        </div>
+    </div>`
+    });
 }
 
 function filtrarProductosPrecio() {
@@ -187,34 +173,46 @@ function filtrarProductosPrecio() {
     })
     funcionCarrito(resultado2);
 }
-
 function ordenarProductosMin() {
-    let orden = true
-    if (orden) {
-        productos.sort((a, b) => {
-            if (a.importe > b.importe) {
-                return 1
-            }
-            if (a.importe < b.importe) {
-                return -1
-            }
-            return 0
-        })
-
-        listaHtml()
-    }
+    productos.sort(comparacion)
+    lista.innerHTML = ""
+    productos.forEach(producto => {
+        lista.innerHTML += `  
+                        <div class="card" style="width: 16rem;">
+                            <img src="assets/productos/prod${producto.id}.jpg" class="card-img-top" alt="${producto.nombre} ${producto.talle}">
+                            <div class="card-body ">
+                            <h5 class="card-title">${producto.nombre}</h5>
+                            <p class="card-text">$ ${producto.importe}</p>
+                            <div>    <a class="btn btn-primary" id="btn-agregar${producto.id}">Agregar al carrito</a>
+                        </div></div>
+                        </div> `
+    })
+    funcionCarrito(productos);
 }
-
+function realizarCompra(){
+    localStorage.removeItem("carrito")
+    carritoDiv.innerHTML = "";
+    cartelTotal.innerText = "";
+    carritoLenght.innerHTML = "";
+    carrito = []
+    btnComprar()
+}
 function btnComprar() {
     Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Estamos trabajando en la seccion de compras',
-        footer: 'Disculpen las molestias',
+        icon: 'success',
+        title: 'Listo. ID de compra: #'+ Math.floor((Math.random() * 100000)),
+        text: 'Su compra fue realizada exitosamente.',
+        footer: 'Gracias por confiar en FLAME',
         background: "orange"
     })
 }
 //LLamado funciones
+
+// productos.sort((a,b)=>{if(a.importe>b.importe){return 1}
+// if (a.importe<b.importe){return -1}return 0})
+function comparacion(a,b){
+    return a.importe - b.importe
+}
 
 cargarContenido()
 visualizarCarrito()

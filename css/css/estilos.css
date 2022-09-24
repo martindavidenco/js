@@ -35,6 +35,11 @@
 }
 
 /*-----HEADER-----*/
+.funciones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -103,9 +108,7 @@
     background-color: #c9400a;
     border-radius: 13px;
 }
-.infoModal li {
-    
-}
+
 .ul-modal {
     list-style: none;
     display:flex
@@ -154,7 +157,27 @@
     justify-content: center;
     align-items: center;
 }
+.form-control:focus {
+    border-color:#c9400a ;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+} 
 
+.custom-control-input:checked ~ .custom-control-indicator {
+    background-color: #ffa500;
+}
+.custom-checkbox > [type="checkbox"]:disabled:not(:checked) + label:before,
+.custom-checkbox > [type="checkbox"]:disabled:checked + label:before {
+    box-shadow: none;
+    background-color: #eeeeee;
+    border-color: #eeeeee;
+    cursor: not-allowed;
+    opacity: 1;
+    color: #dadada;
+}
+.checkbox label::before {
+    border: 1px solid #0095ff;
+    box-shadow: 0 0 3px 2px #0095ff;
+}
 /*----MAIN----*/
 
 /*----FOOTER----*/
