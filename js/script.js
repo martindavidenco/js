@@ -3,7 +3,16 @@ precio_menor.addEventListener("click", ordenarProductosMin)
 precio_mayor.addEventListener("click", filtrarProductosPrecio)
 comprar.addEventListener("click", realizarCompra)
 subir.addEventListener("click", mostrarProductosCargados)
-
+subir.addEventListener("click", ()=> {
+    let descripcion = nombreProd.value
+    Swal.fire({
+        icon: 'success',
+        title: `Listo. Su artículo: ${descripcion} fue subido exitosamente al muro de FLAME`,
+        text: '',
+        footer: 'Gracias por confiar en FLAME',
+        background: "orange"
+    })
+})
 // DECLARACION FUNCIONES
 const cargarContenido = async () => {
     let jsonProductos
@@ -97,9 +106,9 @@ function borrarProducto(producto) {
         carrito = carrito.filter((productoFilter) => productoFilter.id !== producto.id)
         Swal.fire({
             icon: 'error',
-            //title: 'Oops...',
+            //title: '',
             text: `${producto.nombre} eliminado del carro`,
-            //footer: '<a href="">Why do I have this issue?</a>'
+            //footer: ''
             background: "orange",
             confirmButtonColor: "red",
         })
@@ -144,6 +153,7 @@ function mostrarProductosCargados() {
         </div>
     </div>`
     });
+    funcionCarrito(productosNuevos)
 }
 
 function filtrarProductosPrecio() {

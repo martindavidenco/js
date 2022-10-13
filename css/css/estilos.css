@@ -206,7 +206,7 @@ footer div a img {
 }
 
 .mainExplorar nav {
-    padding-left: 350px;
+    padding-left: 460px;
     background-color: rgba(41, 41, 41, 0.897);
 }
 
@@ -352,7 +352,7 @@ footer div a img {
     }
 
     .mainExplorar nav {
-        padding-left: 0;
+        padding-left: 180px;
     }
 }
 
@@ -379,6 +379,9 @@ footer div a img {
 
     .navflex {
         flex-direction: column;
+    }
+    .mainExplorar nav {
+        padding-left: 0;
     }
 }
 

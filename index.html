@@ -42,9 +42,10 @@
             <div class="registrar">
                 <div id="botn">
                     <h2>Agrega productos!</h2>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-    <img src="/assets/agregar.png" alt="Publica">
-  </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">
+                        <img src="/assets/agregar.png" alt="Publica">
+                    </button>
                 </div>
             </div>
         </header>
@@ -78,7 +79,7 @@
                                     </div>
                                 </li>
                             </ul>
-                          
+
                         </div>
                 </nav>
                 <section class="productos" id="lista">
@@ -116,17 +117,17 @@
                     <div class="modal-body">
                         <label for="customRange2" class="form-label">Rango de precio máximo en el que desea buscar
                             productos!</label>
-                            <!-- precio minimo -->
-                            <input onchange="document.getElementById(`outvol1`).value=value" step="0.5" type="range"
+                        <!-- precio minimo -->
+                        <input onchange="document.getElementById(`outvol1`).value=value" step="0.5" type="range"
                             class="form-range rango" min="0" name="vol1" max="25000" id="customRange2 vol"></input>
                         <div class="pMax">
-                            <p>Precio mínimo: $  </p><output id="outvol1" name="outvol1" for="vol1"> ...</output>
+                            <p>Precio mínimo: $ </p><output id="outvol1" name="outvol1" for="vol1"> ...</output>
                         </div>
                         <!-- precio maximo -->
                         <input onchange="document.getElementById(`outvol`).value=value" step="0.5" type="range"
                             class="form-range rango" min="0" name="vol" max="30000" id="customRange2 vol"></input>
                         <div class="pMax">
-                            <p>Precio máximo: $  </p><output id="outvol" name="outvol" for="vol"> ...</output>
+                            <p>Precio máximo: $ </p><output id="outvol" name="outvol" for="vol"> ...</output>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -138,34 +139,43 @@
         </div>
         <!-- fin modal2 -->
         <!-- Modal3 -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title modd" id="exampleModalLabel">Sube tus productos a FLAME</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title modd" id="exampleModalLabel">Sube tus productos a FLAME</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default ">Nombre</span>
+                            <input id="nombreProd" placeholder="Ingrese nombre de la prenda de ropa" type="text"
+                                class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Talle</span>
+                            <input id="talleProd" placeholder="Escriba el o los talles" type="text" class="form-control"
+                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Precio</span>
+
+                            <input id="precioProd" placeholder="Ingrese el importe" type="text" class="form-control"
+                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Imagen del producto</span>
+                            <input type="file" placeholder="Inserte imagen">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" id="subir" class="btn btn-primary">Subir artículo</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default ">Nombre</span>
-                <input id="nombreProd" placeholder="Ingrese nombre de la prenda de ropa" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default">Talle</span>
-                <input id="talleProd" placeholder="Escriba el o los talles" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default">Precio</span>
-                <input id="precioProd" placeholder="Ingrese el importe" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" id="subir" class="btn btn-primary">Subir artículo</button>
-        </div>
-      </div>
-    </div>
-  </div>
         <footer class="footer">
             <a href="index.html"><img src="/assets/free-logo.png" alt="logo"> </a>
             <div>
@@ -180,7 +190,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-        
+
 </body>
 
 </html>
